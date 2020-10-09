@@ -1,0 +1,10 @@
+FROM python:3.6-slim-stretch
+
+COPY . /src
+
+WORKDIR /src
+
+RUN pip3 install --upgrade pip setuptools && \
+    python3 -m pip install numpy tensorflow tensorflow_hub tensorflow_text pyyaml h5py redis
+
+CMD ["python3", "predict.py"]
